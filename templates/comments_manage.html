@@ -1,0 +1,36 @@
+{% extends 'base_admin.html' %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block body %}
+
+{% for cat, msg in get_flashed_messages(True)%}
+<div class="container">
+    <div class="flash {{ cat }}">{{ msg }}</div>
+</div>
+{% endfor %}
+
+<div class="container">
+    <div class="d-flex flex-wrap">
+        {% for comm in comments %}
+            <div class="card m-4 rounded-3 shadow-sm comm">
+                <div class="card-body">
+                    <div class="card-title-cont">
+                        <p class="card-title"><b>{{ comm.name }}</b></p>
+                    </div>
+                    <p class="card-title pricing-card-title">{{ comm.msg }}</p>
+                    <p><i>{{ comm.email }}</i></p>
+                </div>
+                <form action="/delete_comment/{{comm.id}}" method="get">
+                    <button class="delete-btn" type="submit" >🗑Delete comment</button>
+                </form>
+            </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

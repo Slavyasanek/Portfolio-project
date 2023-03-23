@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block body %}
+{% for cat, msg in get_flashed_messages(True)%}
+<div class="container">
+    <div class="flash {{ cat }}">{{ msg }}</div>
+</div>
+{% endfor %}
+
+<div class="container">
+
+    <form action="/edit_page/{{item.id}}" method="post">
+        <div class="main-content">
+
+            <h5>Title:</h5>
+            <input name="title" type="text" value="{{ item.title }}"><br><br>
+
+            {% if images[0] %}
+            <div class="img-content">
+                {% for img in images %}
+                    <img src="https://drive.google.com/uc?id={{img}}&export=view"><br>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if videos[0] %}
+            <div class="video-content">
+                {% for vid in videos %}
+                    <iframe src="https://drive.google.com/uc?id={{vid}}&export=view" frameborder="0"></iframe><br>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+        </div>
+
+        <div class="description">
+            <h5>Description:</h5>
+            <textarea name="desc" cols="50" rows="5">{{ item.description }}</textarea>
+        </div>
+
+        <div class="short-description">
+            <h5>Short description:</h5>
+            <textarea name="short" cols="50" rows="5">{{ item.short }}</textarea>
+        </div>
+
+        {% if objs[0] %}
+        <div class="obj-content">
+            <h5>You can also download .obj files:</h5>
+            {% set c = namespace(value=1) %}
+            {% for obj in objs %}
+            <a href="https://drive.google.com/uc?id={{obj}}&export=view" download>Object {{ c.value }}</a><br>
+            {% set c.value = c.value + 1 %}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <br><br>
+
+        <button type="submit">Save changes</button>
+    </form>
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base_admin.html' %}
+
+<!-- {% block styles %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %} -->
+
+{% block body %}
+
+{% for cat, msg in get_flashed_messages(True)%}
+<div class="container">
+    <div class="flash {{ cat }}">{{ msg }}</div>
+</div>
+{% endfor %}
+
+<section class="add">
+    <div class="container">
+        <h1 class="add__title">Add project details</h1>
+        <form class="add__form" action="/add_project" enctype="multipart/form-data" method="post">
+            <label for="title" class="add__label">Title:</label>
+            <input type="text" name="title" id="title" class="add__input" placeholder="Add title..." required>
+
+            <label for="title" class="add__label">Cover image (uses as card cover, paste Google Drive share link):</label>
+            <input type="text" name="cover" id="cover" class="add__input" required placeholder="Paste Google Drive share link!">
+
+            <label for="short" class="add__label">Short description (uses on card):</label>
+            <textarea id="short" name="short" placeholder="Put maximum 150 symbols here..." rows="3" maxlength="150" class="add__textarea"></textarea>
+
+            <h1 class="add__subtitle">Files</h1>
+
+            <div class="add__wrapper">
+                <div class="add__item">
+                    <label for="images" class="add__label" id="images">Images:</label>
+                    <textarea name="images" class="add__textarea" rows="5" placeholder="Paste here Google Drive share links. Each link must be separated with space. Allowed formats: .png, .jpg, .jpeg, .gif"></textarea>    
+                </div>                
+                <div class="add__item">
+                    <label class="add__label" for="videos">Videos:</label>
+                    <textarea name="videos" class="add__textarea" id="videos" rows="5" placeholder="Paste here Google Drive share links. Each link must be separated with space. Allowed formats: .mp4, .ogg, .webm"></textarea>    
+                </div>
+                <div class="add__item">
+                    <label class="add__label" for="description">Description:</label>
+                    <textarea name="description" id="description" class="add__textarea" rows="5" placeholder="Put long description here!"></textarea>    
+                </div>                
+                <div class="add__item">
+                    <label class="add__label" for="object">.obj file links:</label>
+                    <textarea name="object" class="add__textarea" id="object" rows="5" placeholder="Paste here Google Drive share links. Each link must be separated with space."></textarea>    
+                </div>
+            </div>
+            <input type="submit" class="add__btn" value="Add project">
+        </form>
+    </div>
+</section>
+
+{% endblock %}

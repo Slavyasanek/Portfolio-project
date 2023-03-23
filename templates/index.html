@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block body %}
+{% for cat, msg in get_flashed_messages(True)%}
+<div class="container">
+    <div class="flash {{ cat }}">{{ msg }}</div>
+</div>
+{% endfor %}
+
+<ul class="slider">
+    <li class="slide" style="background-image: url('https://drive.google.com/uc?id=1dhf16uZZJZSW1rZwOWMWODK80uJDOck9&export=view');"></li>
+    <li class="slide" style="background-image: url('https://drive.google.com/uc?id=1m4PV3OGx0or-ft_AeoxCIt7hBIRTD_V8&export=view');"></li>
+    <li class="slide" style="background-image: url('https://drive.google.com/uc?id=1eXaGuDm4W7_b6u44yPJfhV1Q_g2au4nz&export=view');">
+    </li>
+    <li class="slide" style="background-image: url('https://drive.google.com/uc?id=1eMtviAu6LjD_DYGjm67cUKj4unq9O2GS&export=view');"></li>
+    <li class="slide" style="background-image: url('https://drive.google.com/uc?id=1BaWCX3QKtJ_SRt8rY88rIHdlNed87UbD&export=view');"></li>
+    <li class="slide" style="background-image: url('https://drive.google.com/uc?id=15P0sTja73Ki1YrEJebuu5BYlFLCT2hVH&export=view');"></li>
+</ul>
+{% endblock %}

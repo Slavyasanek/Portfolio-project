@@ -1,0 +1,49 @@
+{% extends 'base_admin.html' %} {% block styles %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static', filename='css/styles.css') }}"
+/>
+{% endblock %} {% block body %} {% for cat, msg in get_flashed_messages(True)%}
+<div class="container">
+  <div class="flash {{ cat }}">{{ msg }}</div>
+</div>
+{% endfor %}
+
+<section class="manage">
+  <div class="container">
+    <div class="manage--flex">
+        {% if items %} {% for item in items %}
+        <div class="manage__card">
+          <form class="manage__card-btn" action="/item-page/{{item[0]}}" method="get">
+            <button class="manage__card-btn" type="submit">
+                <div class="manage__img-thumb">
+                  <img
+                    class="manage__img"
+                    src="https://drive.google.com/uc?id={{item[2]}}&export=view"
+                  />
+                </div>
+                <div class="manage__title-wrapper">
+                    <h2 class="manage__title">{{ item[1] }}</h2>
+                </div>
+            </button>
+          </form>
+          <div class="manage__operate">
+            <form class="manage__form" action="/delete_card/{{item[0]}}" method="get">
+                <button class="manage__btn manage__btn--delete" type="submit">
+                    <svg  width="30" height="30" viewBox="0 0 24 24" class="icon-delete"><path  stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 7v11a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7M6 7H5m1 0h2m10 0h1m-1 0h-2m-6 4v5m4-5v5M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M8 7h8"/></svg>Delete
+                </button>
+              </form>
+              <form class="manage__form" action="/edit_page/{{item[0]}}" method="get">
+                <button class="manage__btn manage__btn--edit" type="submit">
+                    <svg width="30" height="30" viewBox="0 0 20 20" class="icon-edit"><path fill-rule="evenodd" d="M15.198 3.52a1.612 1.612 0 0 1 2.223 2.336L6.346 16.421l-2.854.375 1.17-3.272L15.197 3.521zm3.725-1.322a3.612 3.612 0 0 0-5.102-.128L3.11 12.238a1 1 0 0 0-.253.388l-1.8 5.037a1 1 0 0 0 1.072 1.328l4.8-.63a1 1 0 0 0 .56-.267L18.8 7.304a3.612 3.612 0 0 0 .122-5.106zM12 17a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2h-6z"/></svg>Edit</button>
+              </form>
+          </div>
+        </div>
+    
+        {% endfor %} {% endif %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

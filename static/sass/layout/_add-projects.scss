@@ -1,0 +1,112 @@
+.add {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    &__title, &__subtitle {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 28px;
+    }
+    &__subtitle {
+        align-self: center;
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        gap: 10px;
+        margin-top: 20px;
+        @include min_1024 {
+            align-items: start;
+            gap: 20px;
+        }
+    }
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        @include min_1024 {
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin: -10px;
+            gap: 0;
+        }
+    }
+    &__item {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        @include min_1024 {
+            width: calc((100% - 4 * 10px)/2);
+            margin: 10px;
+        }
+    }
+    &__input {
+        width: 100%;
+        height: 60px;
+        border-radius: 8px;
+        background-color: var(--header-bcg);
+        color: var(--main-font-color);
+        font-weight: 500;
+        padding-right: 10px;
+        padding-left: 10px;
+        outline: none;
+        border: 2px solid var(--odd-bcg);
+        &::placeholder {
+            color: var(--main-font-color);
+            font-weight: 500;
+        }
+        &:focus-within {
+            border-color: var(--main-font-color);
+        }
+        @include min_1024 {
+            width: 600px;
+        }
+    }
+    &__label {
+        font-size: 20px;
+        text-align: center;
+    }
+    &__textarea {
+        width: 100%;
+        height: 200px;
+        border-radius: 8px;
+        background-color: var(--header-bcg);
+        color: var(--main-font-color);
+        font-weight: 500;
+        padding: 10px;
+        outline: none;
+        resize: none;
+        border: 2px solid var(--odd-bcg);
+        &::placeholder {
+            color: var(--main-font-color);
+            font-weight: 500;
+        }
+        &:focus-within {
+            border-color: var(--main-font-color);
+        }
+        // @include min_1024 {
+        //     width: 800px;
+        // }
+    }
+    &__btn {
+        width: 200px;
+        height: 50px;
+        text-transform: uppercase;
+        background-color: var(--mobile-menu-bcg);
+        color: var(--main-font-color);
+        border: 1px solid var(--main-font-color);
+        border-radius: 5px;
+        font-weight: 500;
+        transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+        &:hover, &:focus, &:active {
+            background-color: var(--mail-color);
+        }
+        @include min_1024 {
+            align-self: center;
+            width: 400px;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+@import './utils/variables';
+@import './utils/mixins';
+@import './utils/animations';
+
+@import './base/reset-basis';
+@import './base/container';
+
+@import './components/header';
+@import './components/slider';
+@import './components/flashes';
+
+@import './layout/portfolio';
+@import './layout/item';
+@import './layout/profile';
+@import './layout/feedback';
+
+@import './layout/add-projects';
+@import './layout/projects_manage';
+@import './components/footer';

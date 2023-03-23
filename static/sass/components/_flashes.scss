@@ -1,0 +1,35 @@
+.flash {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    min-width: 300px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 25px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    text-transform: uppercase;
+    color: var(--main-font-color);
+    // animation: opacityFlash 3s ease-in-out 1 forwards;
+    &.success {
+        background-color: var(--edit-btn-bcg);
+        border: 2px solid var(--edit-icon-hover);
+    }
+    &.error {
+        background-color: var(--delete-btn-bcg);
+        border: 2px solid var(--delete-btn-text);
+        color: var(--delete-btn-text);
+    }
+    @include min_768 {
+        width: max-content;
+    }
+    @include min_1024 {
+        width: 30%;
+    }
+}

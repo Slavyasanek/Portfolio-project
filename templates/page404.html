@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h2>Page not found</h2>
+    <p>Maybe you want to return to <a href="/">home page</a>.</p>
+</div>
+
+{% endblock %}

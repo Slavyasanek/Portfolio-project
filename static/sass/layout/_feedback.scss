@@ -1,0 +1,139 @@
+.feedback {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 40px;
+    @include min_768 {
+      align-items: center;
+    }
+  }
+  &__input {
+    height: 50px;
+    padding: 10px;
+    background-color: var(--footer-bcg);
+    outline: none;
+    color: var(--main-font-color);
+    font-weight: 500;
+    border: 3px solid var(--main-font-color);
+    border-radius: 5px;
+    @include min_768 {
+      width: 80%;
+    }
+    @include min_1024 {
+      width: 50%;
+    }
+  }
+  &__label {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  &__textarea {
+    resize: none;
+    background-color: var(--footer-bcg);
+    outline: none;
+    color: var(--main-font-color);
+    font-weight: 500;
+    border: 3px solid var(--main-font-color);
+    border-radius: 5px;
+    padding: 10px;
+    height: 200px;
+    @include min_768 {
+      width: 80%;
+    }
+    @include min_1024 {
+      width: 50%;
+    }
+  }
+  &__btn {
+    height: 40px;
+    width: 70%;
+    align-self: center;
+    border-radius: 8px;
+    background-color: var(--header-bcg);
+    border: 2px solid var(--main-font-color);
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--main-font-color);
+    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--main-font-color);
+      border-color: var(--main-bcg);
+      color: var(--main-bcg);
+    }
+    @include min_768 {
+      width: 300px;
+      margin-top: 20px;
+    }
+  }
+  &__comments {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    @include min_1024 {
+      gap: 20px;
+    }
+  }
+  &__title {
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 25px;
+    text-shadow: -1px 6px 11px rgba(0, 0, 0, 0.5);
+  }
+  &__flash {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--edit-btn-bcg);
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 20px;
+    animation: flash 1s ease-in-out 1 forwards;
+    @include min_768 {
+      width: 60%;
+      padding: 10px;
+    }
+    @include min_1024 {
+      width: 440px;
+    }
+  }
+  &__success {
+    font-size: 16px;
+    color: var(--edit-btn-text);
+    @include min_768 {
+      font-size: 20px;
+    }
+  }
+}
+
+.icon-heart {
+  fill: var(--edit-btn-text);
+}
+
+.comment {
+  box-shadow: 0px 14px 28px 4px rgba(0, 0, 0, 0.24);
+  &__body {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    padding: 10px;
+    overflow-wrap: break-word;
+  }
+  &__name {
+    font-weight: 500;
+    display: block;
+    color: var(--resume-bcg);
+    margin-bottom: 10px;
+  }
+  &__text {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,15 @@
+.container {
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 360px;
+    @include min_768 {
+        max-width: 768px;
+    }
+    @media screen and (min-width: 1200px) {
+        max-width: 1200px;
+    }
+    @include min_1440 {
+        max-width: 1440px;
+    }
+}

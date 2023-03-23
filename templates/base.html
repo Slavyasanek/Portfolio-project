@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/index.min.css') }}"
+    />
+    <title>{{ title }}</title>
+    {% block styles %}{% endblock%}
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <nav class="header--flex">
+          <div class="header__logo">
+            <a href="/" class="header__title">Nikita Nikitin</a>
+            <h2 class="header__subtitle">3D artist</h2>
+          </div>
+
+          <ul class="header__nav">
+            <li class="header__item"><a href="/" class="">Home</a></li>
+            <li class="header__item">
+              <a href="/portfolio" class="">Portfolio</a>
+            </li>
+            <li class="header__item"><a href="/resume" class="">Resume</a></li>
+            <li class="header__item"><a href="/about" class="">About</a></li>
+            <li class="header__item">
+              <a href="/feedback" class="">Feedback</a>
+            </li>
+          </ul>
+          <div class="menu__icon--bcg">
+            <div class="menu__icon js-menu-open">
+              <span class="menu__icon__line"></span>
+              <span class="menu__icon__line"></span>
+              <span class="menu__icon__line"></span>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="menu js-menu-body">
+      <ul class="menu__list">
+        <li><a href="/" class="">Home</a></li>
+        <li><a href="/portfolio" class="">Portfolio</a></li>
+        <li><a href="/resume" class="">Resume</a></li>
+        <li><a href="/about" class="">About</a></li>
+        <li><a href="/feedback" class="">Feedback</a></li>
+      </ul>
+    </div>
+
+    {% block body %}{% endblock %}
+
+    <footer class="footer">
+      <div class="container footer--flex">
+        <p class="footer__copy">&copy; Nekit Portfolio</p>
+
+        <ul class="footer__nav">
+          <li class="footer__item">
+            <a href="/" class="">Home</a>
+          </li>
+          <li class="footer__item">
+            <a href="/portfolio" class="">Portfolio</a>
+          </li>
+          <li class="footer__item">
+            <a href="/resume" class="">Resume</a>
+          </li>
+          <li class="footer__item">
+            <a href="/about" class="">About</a>
+          </li>
+          <li class="footer__item">
+            <a href="/feedback" class="">Feedback</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <script
+      type="module"
+      src="{{ url_for('static', filename='js/index.js') }}"
+    ></script>
+    <script type="module" src="{{ url_for('static', filename='js/slider.js') }}"></script>
+  </body>
+</html>

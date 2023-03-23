@@ -1,0 +1,133 @@
+.item {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  &-wrapper {
+    position: relative;
+  }
+}
+
+.content-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+
+.image__content {
+  margin-bottom: 20px;
+  @include min_1024 {
+    margin-bottom: 40px;
+  }
+  &-item {
+    max-width: 100%;
+    width: auto;
+    margin: 0 auto;
+  }
+}
+
+.video__content {
+  @include min_1024 {
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: -10px;
+    gap: 0;
+  }
+  &-item {
+    height: 190px;
+    max-width: 100%;
+    margin: 0 auto;
+    @include min_768 {
+      width: 768px;
+      height: 400px;
+    }
+    @include min_1024 {
+      margin: 10px;
+      width: calc((100% - 4 * 10px) / 2);
+    }
+  }
+}
+
+.item-descr {
+  background-color: var(--descr-bcg);
+  position: fixed;
+  top: 170px;
+  right: 0;
+  z-index: 96;
+  padding: 80px 30px;
+  width: 100vw;
+  height: 80vh;
+  transform: translateX(100%);
+  overflow-y: scroll;
+  transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  &.shown {
+    transform: translateX(0);
+  }
+  @include min_768 {
+    width: 70vw;
+    height: 400px;
+  }
+  @include min_1024 {
+    top: 135px;
+    width: 426px;
+    height: 80vh;
+  }
+  &__icon {
+    fill: var(--main-font-color);
+    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover,
+    &:focus,
+    &:active {
+      fill: var(--icon-hover);
+    }
+    &--arrow {
+      transform: rotate(180deg);
+      &.shown {
+        transform: rotate(360deg);
+      }
+    }
+  }
+  &__btn {
+    position: fixed;
+    z-index: 97;
+    top: 200px;
+    right: 10px;
+    border: none;
+    width: 58px;
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--descr-bcg);
+    cursor: pointer;
+    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    @include min_1024 {
+      top: 140px;
+    }
+  }
+  &__title {
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    &:nth-child(2) {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+    &:last-of-type {
+      margin-top: 40px;
+    }
+  }
+  &__text {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+.obj__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}

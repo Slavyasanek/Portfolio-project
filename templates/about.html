@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block body %}
+{% for cat, msg in get_flashed_messages(True)%}
+<div class="container">
+    <div class="flash {{ cat }}">{{ msg }}</div>
+</div>
+{% endfor %}
+
+<!--<iframe src="https://drive.google.com/file/d/1htvxUbdxGdllVQR9i15fy3mAdeXlNwmL/preview" width="600" height="400" frameborder="0" scrolling="no"></iframe>-->
+<!--<iframe src="https://drive.google.com/uc?id=11pgyJXvSy0SuB7WjGQyt4cmIdU34wBJT&export=view" frameborder="0"></iframe>-->
+<!--<img src="https://drive.google.com/uc?id=1htvxUbdxGdllVQR9i15fy3mAdeXlNwmL&export=view" width="300" height="150">-->
+<!--<img src="https://drive.google.com/file/d//preview">-->
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block body %}
+
+{% for cat, msg in get_flashed_messages(True)%}
+<div class="container">
+    <div class="flash {{ cat }}">{{ msg }}</div>
+</div>
+{% endfor %}
+<section class="portfolio">
+        <div class="card__set">
+            {% if items %}
+            {% for item in items %}
+            <!-- картка -->
+                <div class="card__item">
+                    <form class="card__btn" action="/item-page/{{item[0]}}" method="get">
+                        <button class="card__btn" type="submit">
+                            <div class="card__body">
+                                <div class="card__thumb">
+                                    <img class="card__img" src="https://drive.google.com/uc?id={{item[2]}}&export=view">
+                                </div>
+                                <div class="card__title-wrapper">
+                                    <h2 class="card__title">{{ item[1] }}</h2>
+                                </div>
+                            </div>
+                        </button>
+                    </form>
+                </div>
+    
+    
+            {% endfor %}
+            {% endif %}
+    </div>
+    
+</section>
+{% endblock %}
